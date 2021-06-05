@@ -1,0 +1,306 @@
+@charset "UTF-8";
+/*======================
+#mixins
+======================*/
+/*======================
+  #font
+======================*/
+/*======================
+#bg-color 
+======================*/
+.bg_red {
+  background: #d81c2f;
+}
+
+.bg_yellow {
+  background: #e7d600;
+}
+
+.bg_beige {
+  background: #485ec6;
+}
+
+.bg_grey {
+  background: #9ca5b9;
+}
+
+.bg_purple {
+  background: #a664a0;
+}
+
+.bg_green {
+  background: #84c36e;
+}
+
+.bg_orange {
+  background: #ff5800;
+}
+
+/*======================
+#common -全体に共通するスタイル
+======================*/
+@media screen and (min-width: 1025px) {
+  .is-pc {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .is-tab {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .is-sm {
+    display: none;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 0 150px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .inner {
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .inner {
+    padding: 16px;
+  }
+}
+
+.header,
+.footer {
+  height: 30px;
+  background-color: #cbcbcb;
+}
+
+.header .header_inner,
+.header .footer_inner,
+.footer .header_inner,
+.footer .footer_inner {
+  width: 1200px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.category {
+  background-color: whitesmoke;
+  padding: 80px 0 80px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .category {
+    padding: 50px 0 50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .category {
+    padding: 50px 0 50px;
+  }
+}
+
+.category .category_head {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .category .category_head {
+    font-size: 30px;
+  }
+}
+
+.category_items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.category_items .category_item {
+  width: calc(33.3% - 24px * 2 / 3);
+  padding: 30px;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 1025px) {
+  .category_items .category_item:not(:nth-child(3n + 1)) {
+    margin-left: 24px;
+  }
+  .category_items .category_item:nth-child(n + 4) {
+    margin-top: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .category_items .category_item {
+    width: calc(50% - 24px * 1 / 2);
+  }
+  .category_items .category_item:not(:nth-child(2n + 1)) {
+    margin-left: 24px;
+  }
+  .category_items .category_item:nth-child(n + 3) {
+    margin-top: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .category_items .category_item {
+    width: 100%;
+  }
+  .category_items .category_item:not(:nth-child(n + 1)) {
+    margin-left: 24px;
+  }
+  .category_items .category_item:nth-child(n + 2) {
+    margin-top: 24px;
+  }
+}
+
+.category_items .category_item .category_title {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+.category_items .category_item .category_img {
+  padding: 20px 30px;
+}
+
+.container_item {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.container_item .container_emotion {
+  font-size: 30px;
+  font-weight: 700;
+  color: white;
+}
+
+@media screen and (max-width: 767px) {
+  .container_item .container_emotion {
+    font-size: 24px;
+  }
+}
+
+.container_item .container_description {
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+  padding: 20px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .container_item .container_description {
+    font-size: 18px;
+  }
+}
+
+.container_card_items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding-top: 20px;
+}
+
+.container_card_items .container_card_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  width: calc(50% - 100px * 1 / 2);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 1025px) {
+  .container_card_items .container_card_item:not(:nth-child(2n + 1)) {
+    margin-left: 100px;
+  }
+  .container_card_items .container_card_item:nth-child(n + 3) {
+    margin-top: 24px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .container_card_items .container_card_item {
+    width: calc(50% - 50px * 1 / 2);
+  }
+  .container_card_items .container_card_item:not(:nth-child(2n + 1)) {
+    margin-left: 50px;
+  }
+  .container_card_items .container_card_item:nth-child(n + 3) {
+    margin-top: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .container_card_items .container_card_item {
+    width: 100%;
+  }
+  .container_card_items .container_card_item:not(:nth-child(n + 1)) {
+    margin-left: 24px;
+  }
+  .container_card_items .container_card_item:nth-child(n + 2) {
+    margin-top: 24px;
+  }
+}
+
+.container_card_items .container_card_item .container_card_item_body {
+  color: #0d0d0d;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.container_card_items .container_card_item .container_card_item_body .container_card_title {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 767px) {
+  .container_card_items .container_card_item .container_card_item_body .container_card_title {
+    font-size: 24px;
+  }
+}
+
+.container_card_items .container_card_item .container_card_item_body .container_card_defintion {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 767px) {
+  .container_card_items .container_card_item .container_card_item_body .container_card_defintion {
+    font-size: 12px;
+  }
+}
+
+.container_card_items .container_card_item .container_card_item_img {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 27.58333%;
+          flex: 0 1 27.58333%;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,255 @@
+@charset "utf-8";
+/*======================
+#mixins
+======================*/
+//マップ型変数breakpointsを定義
+$breakpoints: (
+  //キー値//767px以下（スマホ）用の表示
+  "sm": "screen and (max-width: 767px)",
+  //1024px以下768以上（タブレット）用の表示
+  "tab": "screen and (min-width: 768px) and (max-width: 1024px)",
+  //1025px以上（PC）用の表示
+  "pc": "screen and (min-width: 1025px)"
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: pc) {
+  //map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+/*======================
+  #font
+======================*/
+$font-family-default: "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro",
+  "メイリオ", "MS Pゴシック", "MS PGothic", sans-serif; // 標準フォント
+$font-family-english: sans-serif;
+
+/*======================
+#bg-color 
+======================*/
+.bg_red {
+  background: #d81c2f;
+}
+.bg_yellow {
+  background: #e7d600;
+}
+.bg_beige {
+  background: #485ec6;
+}
+.bg_grey {
+  background: #9ca5b9;
+}
+.bg_purple {
+  background: #a664a0;
+}
+.bg_green {
+  background: #84c36e;
+}
+.bg_orange {
+  background: #ff5800;
+}
+/*======================
+#common -全体に共通するスタイル
+======================*/
+
+@include mq(pc) {
+  .is-pc {
+    display: none;
+  }
+}
+@include mq(tab) {
+  .is-tab {
+    display: none;
+  }
+}
+@include mq(sm) {
+  .is-sm {
+    display: none;
+  }
+}
+
+img {
+  width: 100%;
+}
+
+.inner {
+  margin: 0 auto;
+  padding: 0 150px;
+  box-sizing: content-box;
+  @include mq(tab) {
+    padding: 24px;
+  }
+  @include mq(sm) {
+    padding: 16px;
+  }
+}
+.header,
+.footer {
+  height: 30px;
+  background-color: rgb(203, 203, 203);
+  .header_inner,
+  .footer_inner {
+    width: 1200px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.category {
+  background-color: rgb(245, 245, 245);
+  padding: 80px 0 80px;
+
+  @include mq(tab) {
+    padding: 50px 0 50px;
+  }
+  @include mq(sm) {
+    padding: 50px 0 50px;
+  }
+  .category_head {
+    font-size: 48px;
+    font-weight: 700;
+    text-align: left;
+    padding-bottom: 50px;
+    @include mq(sm) {
+      font-size: 30px;
+    }
+  }
+}
+
+.category_items {
+  display: flex;
+  flex-wrap: wrap;
+  .category_item {
+    width: calc(33.3% - 24px * 2 / 3);
+    padding: 30px;
+    border-radius: 4px;
+    @include mq(pc) {
+      &:not(:nth-child(3n + 1)) {
+        margin-left: 24px;
+      }
+      &:nth-child(n + 4) {
+        margin-top: 24px;
+      }
+    }
+
+    @include mq(tab) {
+      width: calc(50% - 24px * 1 / 2);
+      &:not(:nth-child(2n + 1)) {
+        margin-left: 24px;
+      }
+      &:nth-child(n + 3) {
+        margin-top: 24px;
+      }
+    }
+
+    @include mq(sm) {
+      width: 100%;
+      &:not(:nth-child(n + 1)) {
+        margin-left: 24px;
+      }
+      &:nth-child(n + 2) {
+        margin-top: 24px;
+      }
+    }
+    .category_title {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+    }
+    .category_img {
+      padding: 20px 30px;
+    }
+  }
+}
+
+.container_item {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  .container_emotion {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    @include mq(sm) {
+      font-size: 24px;
+    }
+  }
+  .container_description {
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+    padding: 20px 0;
+    @include mq(sm) {
+      font-size: 18px;
+    }
+  }
+}
+
+.container_card_items {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  .container_card_item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+
+    width: calc(50% - 100px * 1 / 2);
+    padding: 10px;
+    border-radius: 4px;
+    @include mq(pc) {
+      &:not(:nth-child(2n + 1)) {
+        margin-left: 100px;
+      }
+      &:nth-child(n + 3) {
+        margin-top: 24px;
+      }
+    }
+
+    @include mq(tab) {
+      width: calc(50% - 50px * 1 / 2);
+      &:not(:nth-child(2n + 1)) {
+        margin-left: 50px;
+      }
+      &:nth-child(n + 3) {
+        margin-top: 24px;
+      }
+    }
+
+    @include mq(sm) {
+      width: 100%;
+      &:not(:nth-child(n + 1)) {
+        margin-left: 24px;
+      }
+      &:nth-child(n + 2) {
+        margin-top: 24px;
+      }
+    }
+
+    .container_card_item_body {
+      color: rgb(13, 13, 13);
+      flex: 1;
+      .container_card_title {
+        font-size: 30px;
+        font-weight: 700;
+        @include mq(sm) {
+          font-size: 24px;
+        }
+      }
+      .container_card_defintion {
+        font-size: 16px;
+        font-weight: 300;
+        @include mq(sm) {
+          font-size: 12px;
+        }
+      }
+    }
+    .container_card_item_img {
+      flex: 0 1 27.58333%;
+    }
+  }
+}
