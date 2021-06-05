@@ -8,5 +8,7 @@ Recursion Project1 Emotion Onomatopoeia Dictionary
 </ul>
 
 ## Installation
-$ git clone https://github.com/haruki111/Emotion-Onomatopoeia-Dictionary <br>
+```bash
+$ git clone https://github.com/haruki111/Emotion-Onomatopoeia-Dictionary
 $ cd Emotion-Onomatopoeia-Dictionary
+```
