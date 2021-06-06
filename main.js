@@ -137,38 +137,51 @@ const emotions = [
     new EmotionObject("fearful", "feeling afraid; showing fear or anxiety.", "green", ["buzz", "caw", "crawl"]),
     new EmotionObject("disgusted", "feeling or showing strong annoyance, displeasure, or hostility; full of anger.", "orange", ["flick", "gargle", "oink"])
 ];
-let results = "";
-let header =
-    `
-    <header class="header">
-        <div class="header_inner"></div>
-    </header>
-    `;
 
-let category =
-    `
-    <section class="category">
-        <div class="category_inner inner">
-          <h2 class="category_head">Category</h2>
-          <div class="category_items">
-    `;
-for (let i = 0; i < emotions.length; i++) {
-    category += emotions[i].getHtmlCategoryString();
+function headerComponents() {
+    let header =
+        `
+        <header class="header">
+            <div class="header_inner"></div>
+        </header>
+        `;
+    return header;
 }
-category += '</div></div></section >';
 
-let container = `<div class="container">`;
-for (let i = 0; i < emotions.length; i++) {
-    container += emotions[i].getHtmlContainerString();
+function categoryComponents() {
+    let category =
+        `
+        <section class="category">
+            <div class="category_inner inner">
+                <h2 class="category_head">Category</h2>
+                <div class="category_items">
+        `;
+    for (let i = 0; i < emotions.length; i++) {
+        category += emotions[i].getHtmlCategoryString();
+    }
+    return category += '</div></div></section >';
 }
-container += `</div>`
 
-let footer =
-    `
-    <footer class="footer">
-        <div class="footer_inner"></div>
-    </footer>
+function containerComponents() {
+    let container = `<div class="container">`;
+    for (let i = 0; i < emotions.length; i++) {
+        container += emotions[i].getHtmlContainerString();
+    }
+    return container += `</div>`;
+}
+
+function footerComponents() {
+    let footer =
+        `
+        <footer class="footer">
+            <div class="footer_inner"></div>
+        </footer>
     `;
+    return footer;
+}
 
-results = header + category + container + footer;
-document.getElementById("target").innerHTML = results;
+function components() {
+    return headerComponents() + categoryComponents() + containerComponents() + footerComponents();
+}
+
+document.getElementById("target").innerHTML = components();
